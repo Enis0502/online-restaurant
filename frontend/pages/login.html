@@ -1,0 +1,61 @@
+<section class="login-section">
+  <div class="login-box">
+    <h2 id="login-heading">Login</h2>
+    <form action="" class="login-form" id="login-form">
+      <input type="text" name="email" id="login-email" placeholder="Email..." />
+      <label for="email"> Enter your email </label> <br />
+      <input
+        type="password"
+        name="password"
+        id="login-password"
+        placeholder="Password..."
+      />
+      <label for="password"> Enter your password </label>
+
+      <p class="login-message">
+        Don't have an account? Sign in
+        <a href="#login" id="log-in" onclick="showSignIn()"> here </a>
+      </p>
+
+      <button type="submit" class="submit-button">Log in</button>
+    </form>
+
+    <form action="" class="login-form" id="signin-form" style="display: none">
+      <input type="text" name="name" id="name" placeholder="Name..." />
+      <label for="name"> Enter your name </label> <br />
+
+      <input type="text" name="surname" id="surname" placeholder="Surname..." />
+      <label for="surname"> Enter your surname </label> <br />
+
+      <input
+        type="text"
+        name="phone"
+        id="phone"
+        placeholder="Phone number..."
+      />
+      <label for="surname"> Enter your phone number </label> <br />
+
+      <input
+        type="text"
+        name="email"
+        id="signin-email"
+        placeholder="Email..."
+      />
+      <label for="email"> Enter your email </label> <br />
+      <input
+        type="password"
+        name="password"
+        id="signin-password"
+        placeholder="Password..."
+      />
+      <label for="password"> Enter your password </label>
+
+      <p class="login-message">
+        Already have an account? Log in
+        <a href="#login" id="sign-in" onclick="showLogIn()"> here </a>
+      </p>
+
+      <button type="submit" class="submit-button">Log in</button>
+    </form>
+  </div>
+</section>

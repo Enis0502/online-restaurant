@@ -1,0 +1,448 @@
+<section class="food_section layout_padding-bottom">
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>Our Menu</h2>
+    </div>
+
+    <ul class="filters_menu">
+      <li data-filter="*" onclick="filterFoods('all')" class="button">All</li>
+      <li onclick="filterFoods('pizza')" class="button">Pizza</li>
+      <li onclick="filterFoods('burger')" class="button">Burger</li>
+      <li onclick="filterFoods('pasta')" class="button">Pasta</li>
+    </ul>
+
+    <!-- <button onclick="mock()" id="mockButton">Bezveze nesto</button>
+
+    <div id="demo">
+      <p>pokusat cemo sakrit ovo</p>
+    </div> -->
+
+    <div class="cart">
+      <table class="cart-table" id="cart-table">
+        <tr>
+          <td>item</td>
+          <td>price</td>
+          <td>quantity</td>
+          <td>total</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="filters-content">
+      <div class="row grid">
+        <div class="col-sm-6 col-lg-4 all pizza foods">
+          <div class="box">
+            <div>
+              <div class="img-box">
+                <img src="images/f1.png" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5 class="food-name">Margarita Pizza</h5>
+                <p>
+                  A timeless classic made with a thin, crispy crust topped with
+                  rich tomato sauce, fresh mozzarella, and fragrant basil
+                  leaves. Simple yet flavorful.
+                </p>
+                <div class="options">
+                  <h6 class="food-price">$20</h6>
+                  <button onclick="addToCart()" class="submit-button">
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 all burger foods">
+          <div class="box">
+            <div>
+              <div class="img-box">
+                <img src="images/f2.png" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>Beef Burger</h5>
+                <p>
+                  Juicy grilled beef patty layered with melted cheese, fresh
+                  lettuce, tomatoes, and our signature sauce, all served in a
+                  soft toasted bun.
+                </p>
+                <div class="options">
+                  <h6 id="food-price">$15</h6>
+                  <button onclick="addToCart()" class="submit-button">
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 all pizza foods">
+          <div class="box">
+            <div>
+              <div class="img-box">
+                <img src="images/f3.png" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>Olive Pizza</h5>
+                <p>
+                  Crispy crust topped with rich tomato sauce, melted mozzarella,
+                  and a generous mix of black and green olives for a bold,
+                  savory flavor.
+                </p>
+                <div class="options">
+                  <h6>$17</h6>
+                  <button onclick="addToCart()" class="submit-button">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 all pasta foods">
+          <div class="box">
+            <div>
+              <div class="img-box">
+                <img src="images/f4.png" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>Classic Pasta</h5>
+                <p>
+                  Al dente pasta tossed in a rich, flavorful sauce, garnished
+                  with fresh herbs and a sprinkle of parmesan for a comforting,
+                  delicious meal.
+                </p>
+                <div class="options">
+                  <h6>$18</h6>
+                  <button onclick="addToCart()" class="submit-button">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 all fries foods">
+          <div class="box">
+            <div>
+              <div class="img-box">
+                <img src="images/f5.png" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>French Fries</h5>
+                <p>
+                  Golden, crunchy fries seasoned to perfection, perfect as a
+                  side or a tasty snack.
+                </p>
+                <div class="options">
+                  <h6>$10</h6>
+                  <button onclick="addToCart()" class="submit-button">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 all pizza foods">
+          <div class="box">
+            <div>
+              <div class="img-box">
+                <img src="images/f6.png" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>Vegetariana Pizza</h5>
+                <p>
+                  A colorful veggie delight with fresh vegetables and melted
+                  cheese, bursting with flavor in every bite. Real life
+                  sensation
+                </p>
+                <div class="options">
+                  <h6>$15</h6>
+                  <button onclick="addToCart()" class="submit-button">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 all burger foods">
+          <div class="box">
+            <div>
+              <div class="img-box">
+                <img src="images/f7.png" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>Chicken Burger</h5>
+                <p>
+                  Juicy grilled chicken with fresh lettuce, tomato, and a savory
+                  sauce, served in a soft bun.
+                </p>
+                <div class="options">
+                  <h6>$12</h6>
+                  <button onclick="addToCart()" class="submit-button">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-4 all pizza foods">
+          <div class="box">
+            <div>
+              <div class="img-box">
+                <img src="images/f6.png" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>Quattro Formaggi Pizza</h5>
+                <p>
+                  A rich and creamy pizza topped with a blend of four delicious
+                  cheeses for a cheesy delight.
+                </p>
+                <div class="options">
+                  <h6>$15</h6>
+                  <button onclick="addToCart()" class="submit-button">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-sm-6 col-lg-4 all burger foods">
+          <div class="box">
+            <div>
+              <div class="img-box">
+                <img src="images/f7.png" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>Tasty Burger</h5>
+                <p>
+                  Veniam debitis quaerat officiis quasi cupiditate quo, quisquam
+                  velit, magnam voluptatem repellendus sed eaque
+                </p>
+                <div class="options">
+                  <h6>$12</h6>
+                  <a href="">
+                    <svg
+                      version="1.1"
+                      id="Capa_1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 456.029 456.029"
+                      style="enable-background: new 0 0 456.029 456.029"
+                      xml:space="preserve"
+                    >
+                      <g>
+                        <g>
+                          <path
+                            d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
+                          />
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <path
+                            d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                         C457.728,97.71,450.56,86.958,439.296,84.91z"
+                          />
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <path
+                            d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
+                          />
+                        </g>
+                      </g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-sm-6 col-lg-4 all burger foods">
+          <div class="box">
+            <div>
+              <div class="img-box">
+                <img src="images/f8.png" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5>Tasty Burger</h5>
+                <p>
+                  Veniam debitis quaerat officiis quasi cupiditate quo, quisquam
+                  velit, magnam voluptatem repellendus sed eaque
+                </p>
+                <div class="options">
+                  <h6>$14</h6>
+                  <a href="">
+                    <svg
+                      version="1.1"
+                      id="Capa_1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 456.029 456.029"
+                      style="enable-background: new 0 0 456.029 456.029"
+                      xml:space="preserve"
+                    >
+                      <g>
+                        <g>
+                          <path
+                            d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
+                          />
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <path
+                            d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                         C457.728,97.71,450.56,86.958,439.296,84.91z"
+                          />
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <path
+                            d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
+                          />
+                        </g>
+                      </g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- <div class="col-sm-6 col-lg-4 all pasta foods">
+          <div class="box">
+            <div>
+              <div class="img-box">
+                <img src="images/f9.png" alt="" />
+              </div>
+              <div class="detail-box">
+                <h5></h5>
+                <p>
+                  Veniam debitis quaerat officiis quasi cupiditate quo, quisquam
+                  velit, magnam voluptatem repellendus sed eaque
+                </p>
+                <div class="options">
+                  <h6>$10</h6>
+                  <a href="">
+                    <svg
+                      version="1.1"
+                      id="Capa_1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 456.029 456.029"
+                      style="enable-background: new 0 0 456.029 456.029"
+                      xml:space="preserve"
+                    >
+                      <g>
+                        <g>
+                          <path
+                            d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z"
+                          />
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <path
+                            d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                         C457.728,97.71,450.56,86.958,439.296,84.91z"
+                          />
+                        </g>
+                      </g>
+                      <g>
+                        <g>
+                          <path
+                            d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z"
+                          />
+                        </g>
+                      </g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <div class="new-section">
+        <h2>Our Chef's Specials</h2>
+        <p>Some cool text or new images here.</p>
+      </div>
+    </div>
+  </div>
+</section>
