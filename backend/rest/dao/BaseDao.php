@@ -25,6 +25,15 @@ class BaseDao{
         return $stmt->execute($data);        
     }
 
+    //helper method for finding column names
+    public function getColumnNames(){
+        $stmt = $this->connection->prepare("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS 
+        WHERE TABLE_SCHEMA = 'onlinerestaurant'
+        AND TABLE_NAME = '" . $this->table_name ."'");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+
     public function getById($id){
         $stmt = $this->connection->prepare("SELECT * FROM " . $this->table_name . " WHERE id = :id;");
         $stmt->bindParam(":id", $id);

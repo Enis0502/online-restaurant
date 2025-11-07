@@ -16,9 +16,6 @@
         public function bookTable($data){
             $colums = implode(", ", array_keys($data));
             $placeholders =  ":" . implode(", :", array_keys($data));
-            if($data["date"] <= date("Y-m-d")){
-                throw new Exception("Reservation date can't be before or on today's date!");
-            }
             $stmt = $this->connection->prepare("INSERT INTO " .$this->table_name. " ($colums) VALUES ($placeholders);");
             return $stmt->execute($data);
         }

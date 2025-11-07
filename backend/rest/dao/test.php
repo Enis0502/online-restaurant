@@ -15,6 +15,9 @@
     $category_dao = new CategoryDao();
     $food_orders_dao = new FoodOrdersDao();
 
+
+    $test = $booking_dao->getColumnNames();
+    print_r($test);
     //some methods may not work if tested with same credentials because some fields are noted as unique.
     // $user_dao->insert([
     //     "name" => "Enis",
@@ -25,13 +28,13 @@
     // ]);
 
     // get all users
-    print_r($user_dao->getAll());
+    //print_r($user_dao->getAll());
 
     //get users by id 
-    print_r($user_dao->getById(1));
+    //print_r($user_dao->getById(1));
 
     //get users by role
-    print_r($user_dao->getByRole("admin"));
+    //print_r($user_dao->getByRole("admin"));
 
 
     
