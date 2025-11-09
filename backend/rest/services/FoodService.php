@@ -16,8 +16,8 @@
             return $this->dao->sortByPrice($order);
         }
 
-        public function getFoodsByCategory(){
-            return $this->dao->getFoodsByCategory();
+        public function getFoodsByCategory($category){
+            return $this->dao->getFoodsByCategory($category);
         }
     }
 
