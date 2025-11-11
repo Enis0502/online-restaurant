@@ -26,9 +26,15 @@
         Flight::json((Flight::FoodOrdersService()->getFoodsByOrder($order)));
     });
     
-    //needs fix
-    Flight::route("GET /foodOrders/order/@order/food/@food", function($order, $food){
-        Flight::json((Flight::FoodOrdersService()->removeFromFoodOrder($order, $food)));
-    })
+    //fixed
+    Flight::route("DELETE /foodOrders/food/@food/order/@order", function($food, $order){
+        Flight::json((Flight::FoodOrdersService()->removeFromFoodOrder($food, $order)));
+    });
+
+    Flight::route('PUT /foodOrders/@order_id/food/@food_id', function($order_id, $food_id) {
+        $data = json_decode(Flight::request()->getBody(), true);
+        $quantity = $data['quantity'];
+        Flight::json(Flight::FoodOrdersService()->updateQuantity($food_id, $order_id, $quantity));
+    });
 
 ?>

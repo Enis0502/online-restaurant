@@ -14,6 +14,7 @@
 
         public function removeFromFoodOrder($food_id, $order_id){
             //to be modified
+            return $this->dao->removeFromFoodOrder($food_id, $order_id);
         }
 
         public function updateQuantity($food_id, $order_id, $quantity){
