@@ -5,6 +5,9 @@
 
     $booking_service = new BookingService();
     $food_service = new FoodService();
+
+    $upcoming = $booking_service->getUpcomingBookings();
+    print_r($upcoming);
     // $get_all = $booking_service->getAll();
     // print_r($get_all);
 
@@ -22,7 +25,7 @@
     // $update_qty = $food_orders_service->updateQuantity(5, 1, -1);
     // print_r($update_qty);
 
-    $test = $food_service->getFoodsByCategory("pizza");
-    print_r($test);
+    // $test = $food_service->getFoodsByCategory("pizza");
+    // print_r($test);
 
 ?>
