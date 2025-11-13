@@ -7,9 +7,6 @@
         }
 
         public function sortByPrice($order){
-            if(!(in_array(strtoupper($order), ["ASC", "DESC"]))){
-                throw new Exception("Wrong order passed.");
-            }
             $stmt = $this->connection->prepare("SELECT * FROM " . $this->table_name . " ORDER BY price " .$order. ";");
             $stmt -> execute();
             return $stmt->fetchAll();
