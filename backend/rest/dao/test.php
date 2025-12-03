@@ -16,8 +16,11 @@
     $food_orders_dao = new FoodOrdersDao();
 
 
-    $test = $booking_dao->getColumnNames();
-    print_r($test);
+    // $test = $booking_dao->getColumnNames();
+    // print_r($test);
+
+    $test2 = $booking_dao->getAll();
+    print_r($test2);
     //some methods may not work if tested with same credentials because some fields are noted as unique.
     // $user_dao->insert([
     //     "name" => "Enis",
