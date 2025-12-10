@@ -5,6 +5,7 @@
     require_once __DIR__ . '/FoodDao.php';
     require_once __DIR__ . '/CategoryDao.php';
     require_once __DIR__ . '/FoodOrdersDao.php';
+    require_once __DIR__ . '/AuthDao.php';
 
     
 
@@ -14,13 +15,20 @@
     $food_dao = new FoodDao();
     $category_dao = new CategoryDao();
     $food_orders_dao = new FoodOrdersDao();
+    $auth_dao = new AuthDao();
 
+
+    $test = $auth_dao->get_user_by_email("john.doe@example.com");
+    print_r($test);
+
+    // $getUsers = $user_dao->getAll();
+    // print_r($getUsers);
 
     // $test = $booking_dao->getColumnNames();
     // print_r($test);
 
-    $test2 = $booking_dao->getAll();
-    print_r($test2);
+    // $test2 = $booking_dao->getAll();
+    // print_r($test2);
     //some methods may not work if tested with same credentials because some fields are noted as unique.
     // $user_dao->insert([
     //     "name" => "Enis",

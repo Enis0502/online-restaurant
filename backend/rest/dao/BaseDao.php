@@ -1,6 +1,6 @@
 <?php 
 
-require_once __DIR__."/../Database.php";
+require_once __DIR__ . "/../Database.php";
 
 class BaseDao{
     protected $connection;
@@ -22,7 +22,10 @@ class BaseDao{
         $placeoholders = ":" . implode(", :", array_keys($data));
         $sql = "INSERT INTO " . $this->table_name . " ($columns) VALUES ($placeoholders);";
         $stmt = $this->connection->prepare($sql);
-        return $stmt->execute($data);        
+        $stmt->execute($data);        
+        
+        return $this->connection->lastInsertId();
+    
     }
 
     //helper method for finding column names
