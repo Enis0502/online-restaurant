@@ -27,5 +27,9 @@
             return $this->dao->getUpcomingBookings();
         }
 
+        public function getBookingsByUserId($id) {
+            return $this->dao->getBookingsByUserId($id);
+        }
+
     }
 ?>

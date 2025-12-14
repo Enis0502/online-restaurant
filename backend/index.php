@@ -3,6 +3,8 @@
     //why does this path work but this one does not?  require "vendor/autoload.php";
     require __DIR__ . "/vendor/autoload.php";
 
+    require __DIR__. "/middleware/AuthMiddleware.php";
+
     require __DIR__. "/rest/services/AuthService.php";
     require_once __DIR__. "/rest/routes/AuthRoutes.php";
 
@@ -25,7 +27,11 @@
     require_once __DIR__. "/rest/routes/UserRoutes.php";
     
     use Firebase\JWT\JWT;
-    use Firebase\JWT\Key;
+    use Firebase\JWT\Key;       
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
     Flight::register("BookingService", "BookingService");
     Flight::register("CategoryService", "CategoryService");
@@ -34,7 +40,7 @@
     Flight::register("OrdersService", "OrdersService");
     Flight::register("UserService", "UserService");
 
-    Flight::register("AuthService", "AuthService");
+    Flight::register("auth", "AuthService");
 
     Flight::route("/*", function(){
         if(

@@ -107,6 +107,82 @@ function showMore() {
     more.innerHTML = "Read more";
   }
 }
+
+function addToCart(button) {
+  const detailBox = button.closest(".detail-box");
+  if (!detailBox) return;
+
+  const foodName = detailBox.querySelector("h5").innerText.trim();
+
+  const priceText = detailBox
+    .querySelector(".options h6")
+    .innerText.replace("$", "")
+    .trim();
+
+  const price = parseFloat(priceText);
+  if (isNaN(price)) return;
+
+  const table = document.getElementById("cart-table");
+  const tbody = table.querySelector("tbody");
+
+  const rows = tbody.querySelectorAll("tr");
+
+  for (let row of rows) {
+    const itemCell = row.cells[0];
+    if (itemCell.innerText === foodName) {
+      // Increase quantity by 1
+      const quantityCell = row.cells[2];
+      const totalCell = row.cells[3];
+
+      let quantity = parseInt(quantityCell.dataset.quantity);
+      quantity++;
+      quantityCell.dataset.quantity = quantity;
+      quantityCell.innerText = quantity;
+
+      totalCell.innerText = "$" + (quantity * price).toFixed(2);
+      return;
+    }
+  }
+
+  const row = document.createElement("tr");
+
+  row.innerHTML = `
+    <td>${foodName}</td>
+    <td>$${price.toFixed(2)}</td>
+    <td data-quantity="1">
+      <button class="decrease">-</button>
+      <span>1</span>
+      <button class="increase">+</button>
+    </td>
+    <td>$${price.toFixed(2)}</td>
+  `;
+
+  tbody.appendChild(row);
+
+  const quantityCell = row.cells[2];
+  const quantitySpan = quantityCell.querySelector("span");
+
+  quantityCell.querySelector(".increase").addEventListener("click", () => {
+    let quantity = parseInt(quantityCell.dataset.quantity);
+    quantity++;
+    quantityCell.dataset.quantity = quantity;
+    quantitySpan.innerText = quantity;
+    row.cells[3].innerText = "$" + (quantity * price).toFixed(2);
+  });
+
+  quantityCell.querySelector(".decrease").addEventListener("click", () => {
+    let quantity = parseInt(quantityCell.dataset.quantity);
+    if (quantity > 1) {
+      quantity--;
+      quantityCell.dataset.quantity = quantity;
+      quantitySpan.innerText = quantity;
+      row.cells[3].innerText = "$" + (quantity * price).toFixed(2);
+    } else {
+      row.remove();
+    }
+  });
+}
+
 // Example: Attach to a button with id 'toggleFoodsBtn'
 
 // let active = true;
@@ -123,9 +199,9 @@ function showMore() {
 //   active = !active;
 // }
 // nice select
-$(document).ready(function () {
-  $("select").niceSelect();
-});
+// $(document).ready(function () {
+//   $("select").niceSelect();
+// });
 
 // client section owl carousel
 $(".client_owl-carousel").owlCarousel({

@@ -8,10 +8,11 @@ use Firebase\JWT\Key;
 class AuthService extends BaseService{
     private $auth_dao;
 
-    public function __construct($dao){
+    public function __construct(){
         $this->auth_dao = new AuthDao();
         parent::__construct(new AuthDao);
     }
+
 
     public function get_user_by_email($email){
         $this->auth_dao->get_user_by_email($email);
@@ -19,7 +20,7 @@ class AuthService extends BaseService{
 
     public function register($entity){
         if(empty($entity["email"]) || empty($entity["password"])){
-            return ["success" => false, "error" => "Email iand password are required for registration."];
+            return ["success" => false, "error" => "Email and password are required for registration."];
         }
 
         $email_exists = $this->auth_dao->get_user_by_email($entity["email"]);
@@ -30,10 +31,29 @@ class AuthService extends BaseService{
 
         $entity["password"] = password_hash($entity["password"], PASSWORD_BCRYPT);
 
-        $entity = parent::insert($entity);
-        unset($entity["password"]);
+        parent::insert($entity);
+        // unset($entity["password"]);
 
-        return ["success" => true, "data" => $entity];
+
+        $jwt_payload = [
+            "user" => $entity,
+            "iat" => time(),
+            "exp" => time() + (60 * 60 * 24)
+        ];
+
+        $token = JWT::encode(
+            $jwt_payload,
+            Config::JWT_secret(),
+            'HS256'
+        );
+
+
+
+
+
+        // return ["success" => true, "data" => $entity];
+        return ["success" => true, "data" => array_merge($entity, ["token" => $token])];
+
     }
 
     public function login($entity){
