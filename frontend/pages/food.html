@@ -11,44 +11,53 @@
       <li onclick="filterFoods('pasta')" class="button">Pasta</li>
     </ul>
 
+    <section class="food_section layout_padding-bottom">
+      <div class="container">
+        <form id="user-order-form" class="cart">
+          <table id="user-orders-table" class="cart-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Items dynamically added here -->
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3" style="text-align: right"><b>Total:</b></td>
+                <td id="total-price">$0.00</td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+          <br />
+          <div class="btn_box" style="margin-top: 15px">
+            <button
+              type="submit"
+              id="submit-order-btn"
+              style="
+                border-radius: 24px;
+                color: white;
+                background-color: #ffbe33;
+              "
+            >
+              Submit Order
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <!-- <button onclick="mock()" id="mockButton">Bezveze nesto</button>
 
     <div id="demo">
       <p>pokusat cemo sakrit ovo</p>
     </div> -->
-
-    <div class="cart">
-      <table class="cart-table" id="cart-table">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- cart items go here -->
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="4" style="text-align: center">
-              <button
-                style="
-                  border-radius: 24px;
-                  background-color: #ffbe33;
-                  color: white;
-                  border: none;
-                "
-                onclick="submitOrder()"
-              >
-                Order Now
-              </button>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
 
     <div class="filters-content">
       <div class="row grid">
