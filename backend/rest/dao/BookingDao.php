@@ -25,6 +25,13 @@
             $stmt->execute();
             return $stmt->fetchAll();
         }
+
+        public function getBookingsByUserId($userId){
+            $stmt = $this->connection->prepare("SELECT * FROM " . $this->table_name . " WHERE user_id = :user_id");
+            $stmt->bindParam(":user_id", $userId, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
 
 ?>

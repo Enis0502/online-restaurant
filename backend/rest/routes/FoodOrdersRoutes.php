@@ -26,6 +26,8 @@
     * )
     */
     Flight::route("GET /foodOrders", function(){
+        Flight::auth_middleware()->authorizeRole([Roles::USER, Roles::ADMIN]);
+
         Flight::json((Flight::FoodOrdersService()->getAll()));
     });
 
@@ -59,6 +61,8 @@
     * )
     */
     Flight::route("POST /foodOrders", function(){
+        Flight::auth_middleware()->authorizeRole([Roles::USER, Roles::ADMIN]);
+
         $data = Flight::request()->data->getData();
         Flight::json((Flight::FoodOrdersService()->insert($data)));
     });
@@ -94,6 +98,8 @@
     * )
     */
     Flight::route("GET /foodOrders/order/@order", function($order){
+        Flight::auth_middleware()->authorizeRole([Roles::USER, Roles::ADMIN]);
+
         Flight::json((Flight::FoodOrdersService()->getFoodsByOrder($order)));
     });
     
@@ -132,6 +138,8 @@
     * )
     */
     Flight::route("DELETE /foodOrders/food/@food/order/@order", function($food, $order){
+        Flight::auth_middleware()->authorizeRole(Roles::ADMIN);
+
         Flight::json((Flight::FoodOrdersService()->removeFromFoodOrder($food, $order)));
     });
 
@@ -181,6 +189,8 @@
     * )
     */
     Flight::route('PUT /foodOrders/@order_id/food/@food_id', function($order_id, $food_id) {
+        Flight::auth_middleware()->authorizeRole([Roles::USER, Roles::ADMIN]);
+
         $data = json_decode(Flight::request()->getBody(), true);
         $quantity = $data['quantity'];
         Flight::json(Flight::FoodOrdersService()->updateQuantity($food_id, $order_id, $quantity));

@@ -284,4 +284,48 @@
         Flight::json((Flight::BookingService()->getUpcomingBookings()));
     });
 
+
+
+    /**
+     * @OA\Get(
+     *     path="/bookings/user/{user_id}",
+     *     tags={"bookings"},
+     *     summary="Get bookings by user ID",
+     *     description="Retrieve all bookings for a specific user by their user ID.",
+     *     @OA\Parameter(
+     *         name="user_id",
+     *         in="path",
+     *         required=true,
+     *         description="The ID of the user to retrieve bookings for",
+     *         @OA\Schema(type="integer", example=3)
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="List of bookings for the specified user",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(
+     *                 type="object",
+     *                 @OA\Property(property="id", type="integer", example=1),
+     *                 @OA\Property(property="user_id", type="integer", example=3),
+     *                 @OA\Property(property="guest_number", type="integer", example=2),
+     *                 @OA\Property(property="date", type="string", format="date-time", example="2025-11-07 18:00:00"),
+     *                 @OA\Property(property="created_at", type="string", format="date-time", example="2025-11-01 15:30:00")
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="No bookings found for the given user ID"
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Internal server error"
+     *     )
+     * )
+     */
+    Flight::route("GET /bookings/user/@user_id", function($user_id){
+        Flight::json(Flight::BookingService()->getBookingsByUserId($user_id));
+    });
+
 ?>

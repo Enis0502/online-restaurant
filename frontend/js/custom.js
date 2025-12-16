@@ -107,6 +107,7 @@ function showMore() {
     more.innerHTML = "Read more";
   }
 }
+
 // Example: Attach to a button with id 'toggleFoodsBtn'
 
 // let active = true;
@@ -123,9 +124,9 @@ function showMore() {
 //   active = !active;
 // }
 // nice select
-$(document).ready(function () {
-  $("select").niceSelect();
-});
+// $(document).ready(function () {
+//   $("select").niceSelect();
+// });
 
 // client section owl carousel
 $(".client_owl-carousel").owlCarousel({

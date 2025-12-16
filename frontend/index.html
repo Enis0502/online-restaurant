@@ -82,13 +82,21 @@
                   <a class="nav-link" href="#book">Book Table</a>
                 </li>
               </ul>
-              <div class="user_option">
+              <div class="user_option" id="nav-auth">
                 <form class="form-inline">
                   <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
                     <i class="fa fa-search" aria-hidden="true"></i>
                   </button>
                 </form>
-                <a href="#login" class="order_online"> Login </a>
+
+                <a
+                  href="#login"
+                  id="login-btn"
+                  class="order_online"
+                  style="display: block"
+                >
+                  Login
+                </a>
               </div>
             </div>
           </nav>
@@ -104,6 +112,8 @@
         <section id="about" data-load="about.html"></section>
         <section id="mainPage" data-load="mainPage.html"></section>
         <section id="login" data-load="login.html"></section>
+        <section id="userOrders" data-load="userOrders.html"></section>
+        <section id="dashboard" data-load="dashboard.html"></section>
 
         <section id></section>
       </main>
@@ -198,7 +208,7 @@
     <!-- isotope js -->
     <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
     <!-- nice select -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script> -->
     <!-- custom js -->
     <script src="./js/custom.js"></script>
     <!-- Google Map -->
@@ -209,5 +219,26 @@
     <script src="./js/jquery-3.4.1.min.js"></script>
     <script src="./js/jquery.spapp.min.js"></script>
     <script src="./js/script.js"></script>
+
+    <!-- my scripts -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+    <script src="utils/constants.js"></script>
+    <script src="utils/utils.js"></script>
+
+    <script src="utils/rest_client.js"></script>
+    <script src="services/user_service.js"></script>
+    <script src="services/user_orders.js"></script>
+    <script src="services/user_bookings.js"></script>
+    <script src="services/admin_users.js"></script>
+    <script src="services/admin_orders.js"></script>
+    <script src="services/admin_bookings.js"></script>
+    <script src="services/user_make_booking.js"></script>
+    <script src="services/user_orders_fetched.js"></script>
+
+    <script type="text/javascript">
+      UserService.init();
+    </script>
   </body>
 </html>
