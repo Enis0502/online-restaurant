@@ -66,7 +66,7 @@ let UserService = {
       },
       error: function (xhr) {
         console.error("REGISTER FAILED", xhr.responseText);
-        alert(xhr.responseText || "Registration failed");
+        alert("Registration failed.");
       },
     });
   },
