@@ -1,11 +1,5 @@
 let UserService = {
   init: function () {
-    $("#login-form").validate({
-      rules: {
-        name: "required",
-        
-      }
-    })
     // Check if user is already logged in
     var token = localStorage.getItem("user_token");
     if (token && token !== undefined) {
