@@ -2,12 +2,15 @@
     require_once __DIR__. "/BookingService.php";
     require_once __DIR__. "/FoodService.php";
     require_once __DIR__. "/FoodOrdersService.php";
+    require_once __DIR__. "/UserService.php";
 
     $booking_service = new BookingService();
     $food_service = new FoodService();
+    $user_service = new UserService();
 
-    $upcoming = $booking_service->getUpcomingBookings();
-    print_r($upcoming);
+
+    $test = $user_service->getByRole("a");
+    print_r($test);
     // $get_all = $booking_service->getAll();
     // print_r($get_all);
 
