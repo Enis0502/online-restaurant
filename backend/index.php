@@ -72,7 +72,6 @@
 
     // });
 
-    Flight::request()->url = str_replace('/online-restaurant-backend', '', Flight::request()->url);
     Flight::start();
 
 ?>
