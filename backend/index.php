@@ -44,8 +44,8 @@
 
     Flight::route("/*", function(){
         if(
-            strpos(Flight::request()->url, "auth/login") === 0 ||
-            strpos(Flight::request()->url, "auth/register") === 0 
+            strpos(Flight::request()->url, "auth/login") !== false ||
+            strpos(Flight::request()->url, "auth/register") !== false 
         ){
             return true;
         }else{
