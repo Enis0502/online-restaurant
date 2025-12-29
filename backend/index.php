@@ -41,30 +41,32 @@
 
     Flight::register("auth", "AuthService");
 
-    /*Flight::route("/*", function(){
-        if(
-            strpos(Flight::request()->url, "auth/login") !== false ||
-            strpos(Flight::request()->url, "auth/register") !== false 
-        ){
-            return true;
-        }else{
-            try{
-                $token = Flight::request()->getHeader("Authentication");
-                if(!$token){
-                    Flight::halt(500, "Missing authentication header.");
-                }
+    Flight::before('start', function(&$params, &$output){
+    $url = Flight::request()->url;
 
-                $decoded_token = JWT::decode($token, new Key(Config::JWT_SECRET(), "HS256"));
+    // Public routes
+    if (
+        strpos($url, '/auth/login') !== false ||
+        strpos($url, '/auth/register') !== false
+    ) {
+        return;
+    }
 
-                Flight::set("user", $decoded_token->user);
-                Flight::set("jwt_token", $token);
-                return true;
-            }catch(\Exception $e){
-                Flight::halt(401, $e->getMessage());
-            }
-        }
-    });
-*/
+    // Protected routes
+    $authHeader = Flight::request()->getHeader('Authorization');
+    if (!$authHeader) {
+        Flight::halt(401, 'Missing Authorization header');
+    }
+
+    $token = str_replace('Bearer ', '', $authHeader);
+
+    try {
+        $decoded = JWT::decode($token, new Key(Config::JWT_SECRET(), 'HS256'));
+        Flight::set('user', $decoded->user);
+    } catch (Exception $e) {
+        Flight::halt(401, $e->getMessage());
+    }
+});
 
     // Flight::route("/", function(){
     //     echo "Hello guuuuuyssss";
