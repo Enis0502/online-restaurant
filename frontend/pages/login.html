@@ -2,13 +2,20 @@
   <div class="login-box">
     <h2 id="login-heading">Login</h2>
     <form action="" class="login-form" id="login-form">
-      <input type="text" name="email" id="login-email" placeholder="Email..." />
+      <input
+        type="email"
+        name="email"
+        id="login-email"
+        placeholder="example@mail"
+        required
+      />
       <label for="email"> Enter your email </label> <br />
       <input
         type="password"
         name="password"
         id="login-password"
         placeholder="Password..."
+        required
       />
       <label for="password"> Enter your password </label>
 
@@ -21,7 +28,7 @@
     </form>
 
     <form class="login-form" id="signin-form" style="display: none">
-      <input type="text" name="name" id="name" placeholder="Name..." />
+      <input type="text" name="name" id="name" placeholder="Name..." required />
       <label for="name"> Enter your name </label> <br />
 
       <input
@@ -29,11 +36,12 @@
         name="phone"
         id="phone"
         placeholder="Phone number..."
+        required
       />
       <label for="surname"> Enter your phone number </label> <br />
 
       <input
-        type="text"
+        type="email"
         name="email"
         id="signin-email"
         placeholder="Email..."

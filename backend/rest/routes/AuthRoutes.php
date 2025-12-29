@@ -102,6 +102,10 @@ Flight::group('/auth', function(){
     */
 
     Flight::route("POST /login", function(){
+        Flight::json([
+        "success" => true,
+        "data" => "NO DB"
+        ]);
         $data = Flight::request()->data->getData();
         $response = Flight::auth()->login($data);
 
