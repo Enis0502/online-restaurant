@@ -1,12 +1,14 @@
 <?php 
-    header("Access-Control-Allow-Origin: https://coral-app-vmx7w.ondigitalocean.app"); // zameni sa stvarnim frontend URL-om
+    header("Access-Control-Allow-Origin: https://coral-app-vmx7w.ondigitalocean.app");
     header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
     header("Access-Control-Allow-Headers: Content-Type, Authorization");
     header("Access-Control-Allow-Credentials: true");
 
-    Flight::route('OPTIONS /*', function(){
-        Flight::halt(200);
-    });
+    // Obradi preflight OPTIONS zahteve
+    if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+        http_response_code(200);
+        exit();
+    }
     //why does this path work but this one does not?  require "vendor/autoload.php";
     require __DIR__ . "/vendor/autoload.php";
 
