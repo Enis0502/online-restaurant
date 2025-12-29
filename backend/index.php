@@ -41,7 +41,7 @@
 
     Flight::register("auth", "AuthService");
 
-    Flight::route("/*", function(){
+    /*Flight::route("/*", function(){
         if(
             strpos(Flight::request()->url, "auth/login") !== false ||
             strpos(Flight::request()->url, "auth/register") !== false 
@@ -64,13 +64,19 @@
             }
         }
     });
-
+*/
 
     // Flight::route("/", function(){
     //     echo "Hello guuuuuyssss";
 
     // });
 
+    Flight::route("GET /ping", function () {
+    Flight::json([
+        "status" => "OK",
+        "message" => "Flight is alive"
+        ]);
+    });
     Flight::start();
 
 ?>
